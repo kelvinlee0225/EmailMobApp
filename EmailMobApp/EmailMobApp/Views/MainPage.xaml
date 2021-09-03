@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmailMobApp.Views.MainPage"
+             xmlns:viewmodels="clr-namespace:EmailMobApp.ViewModels"
+             BackgroundColor="White"
+             x:Name="emailMainPage">
+    <NavigationPage.TitleView>
+        <Grid
+            ColumnDefinitions="Auto,*,Auto">
+            <ImageButton
+                Source="menuLogo.png"
+                HeightRequest="40"
+                WidthRequest="40"
+                Grid.Column="0"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                BackgroundColor="Transparent"/>
+            <Label
+                Text="Primary"
+                FontSize="Large"
+                TextColor="White"
+                VerticalOptions="Center"
+                Grid.Column="1"/>
+            <Image 
+                Source="searchLogo.png"
+                Grid.Column="2"
+                VerticalOptions="Center"
+                BackgroundColor="Transparent"
+                HeightRequest="40"
+                WidthRequest="40"/>
+        </Grid>
+    </NavigationPage.TitleView>
+    <ContentPage.BindingContext>
+        <viewmodels:MainViewModel/>
+    </ContentPage.BindingContext>
+    <AbsoluteLayout>
+        <CollectionView x:Name="emailCollectionView"
+                ItemsSource="{Binding Mails}"
+                SelectedItem="{Binding SelectMail}"
+                SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItem 
+                                IconImageSource="trashcanLogo.png"
+                                BackgroundColor="Red"
+                                Command="{Binding Source={x:Reference emailMainPage}, Path=BindingContext.DeleteMailCommand}"
+                                CommandParameter="{Binding}"/>
+                        </SwipeView.RightItems>
+                        <Grid
+                            RowDefinitions="30,30,30"
+                            ColumnDefinitions="70,*"
+                            Padding="10"
+                            BackgroundColor="White">
+                            <Frame 
+                                Grid.RowSpan="3"
+                                Grid.Column="0"
+                                Padding="0"
+                                CornerRadius="100"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                HeightRequest="70"
+                                WidthRequest="70">
+                                <Image Source="profilePictureLogo.png"/>
+                            </Frame>
+                            <Label Text="{Binding To}"
+                                        FontSize="Large"
+                                        TextColor="Black"
+                                       Grid.Column="1"
+                                       Grid.Row="0"/>
+                            <Label Text="{Binding Subject}"
+                                        FontSize="Medium"
+                                        TextColor="Black"
+                                       Grid.Column="1"
+                                       Grid.Row="1"/>
+                            <Label Text="{Binding Content}"
+                                        FontSize="Small"
+                                        TextColor="Black"
+                                       Grid.Column="1"
+                                       Grid.Row="2"/>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <ImageButton Source="editLogo.png" 
+                            BackgroundColor="Transparent"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                            CornerRadius="100"
+                            AbsoluteLayout.LayoutBounds=".95,.95,55,55"
+                            Command="{Binding AddMailCommand}"/>
+    </AbsoluteLayout>
+</ContentPage>

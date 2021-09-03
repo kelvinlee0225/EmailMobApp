@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmailMobApp.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,10 @@ namespace EmailMobApp
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.Red
+            };
         }
 
         protected override void OnStart()
