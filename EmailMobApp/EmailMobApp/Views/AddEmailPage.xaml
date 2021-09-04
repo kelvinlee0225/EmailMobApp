@@ -1,38 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EmailMobApp.Views.AddEmailPage">
-    <ContentPage.Content>
+             x:Class="EmailMobApp.Views.AddEmailPage"
+             xmlns:viewModels="clr-namespace:EmailMobApp.ViewModels">
+    <NavigationPage.TitleView>
         <Grid
-            RowDefinitions="30,30,30"
-            ColumnDefinitions="70,*"
-            Padding="10">
-            <Frame 
-                Grid.RowSpan="3"
-                Grid.Column="0"
-                Padding="0"
-                CornerRadius="100"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="CenterAndExpand"
-                HeightRequest="70"
-                WidthRequest="70">
-                <Image Source="profilePictureLogo.png"/>
-            </Frame>
-            <Label Text="{Binding To}"
-                    FontSize="Large"
-                    TextColor="Black"
-                    Grid.Column="1"
-                    Grid.Row="0"/>
-            <Label Text="{Binding Subject}"
-                    FontSize="Medium"
-                    TextColor="Black"
-                    Grid.Column="1"
-                    Grid.Row="1"/>
-            <Label Text="{Binding Content}"
-                    FontSize="Small"
-                    TextColor="Black"
-                    Grid.Column="1"
-                    Grid.Row="2"/>
+            ColumnDefinitions="*,Auto,Auto"
+            ColumnSpacing="30">
+            <Label
+                Text="Compose"
+                FontSize="Large"
+                TextColor="White"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Grid.Column="0"/>
+            <ImageButton
+                Source="attachLogo.png"
+                HeightRequest="40"
+                WidthRequest="40"
+                Grid.Column="1"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                BackgroundColor="Transparent"/>
+            <ImageButton 
+                Source="sendLogo.png"
+                Grid.Column="2"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                BackgroundColor="Transparent"
+                HeightRequest="40"
+                WidthRequest="40"
+                Command="{Binding AddMailCommand}"/>
         </Grid>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid
+                ColumnDefinitions="50,*"
+                RowDefinitions="Auto, Auto, Auto">
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="From"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
+                <Entry
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="{Binding From}"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="To"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
+                <Entry
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="{Binding To}"/>
+                <Entry
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Placeholder="Subject"
+                    Text="{Binding Subject}"/>
+            </Grid>
+            <Editor
+                Placeholder="Content"
+                Text="{Binding Content}"
+                VerticalOptions="FillAndExpand" />
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmailMobApp.Views.MailPage"
+             xmlns:viewModels="clr-namespace:EmailMobApp.ViewModels">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid
+                ColumnDefinitions="Auto,*"
+                RowDefinitions="Auto, Auto, Auto">
+                <Label
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    Text="{Binding Subject}"
+                    FontSize="36"
+                    TextColor="Black"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="To"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    FontSize="Large"
+                    TextColor="Black"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="{Binding To}"
+                    FontSize="Large"/>
+                <Label
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Text="{Binding Subject}"
+                    FontSize="Body"/>
+            </Grid>
+            <Label
+                Text="{Binding Content}"
+                VerticalOptions="FillAndExpand"
+                FontSize="Body"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -148,4 +148,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\editLogo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\attachLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sendLogo.png" />
+  </ItemGroup>
 </Project>

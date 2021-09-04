@@ -55,12 +55,12 @@ namespace EmailMobApp.ViewModels
 
         private async void AddMail(Mail mail)
         {
-            await App.Current.MainPage.Navigation.PushAsync(new AddEmailPage());
+            await App.Current.MainPage.Navigation.PushAsync(new AddEmailPage(Mails));
         }
 
         private async void OnMailSelected(Mail mail)
         {
-            await App.Current.MainPage.DisplayAlert(mail.From, mail.Subject, "OK");
+            await App.Current.MainPage.Navigation.PushAsync(new MailPage(mail));
         }
     }
 }

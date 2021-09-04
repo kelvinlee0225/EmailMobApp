@@ -13,12 +13,12 @@ using Xamarin.Forms.Xaml;
 namespace EmailMobApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddEmailPage : ContentPage
+    public partial class MailPage : ContentPage
     {
-        public AddEmailPage(ObservableCollection<Mail> mails)
+        public MailPage(Mail mail)
         {
             InitializeComponent();
-            BindingContext = new AddMailViewModel(mails);
+            BindingContext = new MailViewModel(mail);
         }
     }
 }
