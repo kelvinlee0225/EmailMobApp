@@ -4,7 +4,7 @@
 Screenshots of the applicatoin working:
 
 - Home Page
-![HomePage](https://user-images.githubusercontent.com/52004258/132105501-b2e8ee88-3695-4b15-b23c-4e30944a9423.png){:height="50%" width="50%"}
+![HomePage]<img src="https://user-images.githubusercontent.com/52004258/132105501-b2e8ee88-3695-4b15-b23c-4e30944a9423.png" width="400" height="790">
 
 - Add Mail Page
 ![AddMail0](https://user-images.githubusercontent.com/52004258/132105512-b8791c94-3454-4ae1-9442-c61e48f7fe41.png)
