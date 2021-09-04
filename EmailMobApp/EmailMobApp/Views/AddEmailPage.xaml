@@ -37,40 +37,41 @@
         <ToolbarItem Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Grid
-                ColumnDefinitions="50,*"
-                RowDefinitions="Auto, Auto, Auto">
-                <Label
+        <Grid
+            ColumnDefinitions="50,*"
+            RowDefinitions="Auto, Auto, Auto, Auto">
+            <Label
                     Grid.Row="0"
                     Grid.Column="0"
                     Text="From"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"/>
-                <Entry
+            <Entry
                     Grid.Row="0"
                     Grid.Column="1"
                     Text="{Binding From}"/>
-                <Label
+            <Label
                     Grid.Row="1"
                     Grid.Column="0"
                     Text="To"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"/>
-                <Entry
+            <Entry
                     Grid.Row="1"
                     Grid.Column="1"
                     Text="{Binding To}"/>
-                <Entry
+            <Entry
                     Grid.Row="2"
                     Grid.ColumnSpan="2"
                     Placeholder="Subject"
                     Text="{Binding Subject}"/>
-            </Grid>
             <Editor
                 Placeholder="Content"
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
                 Text="{Binding Content}"
-                VerticalOptions="FillAndExpand" />
-        </StackLayout>
+                VerticalOptions="FillAndExpand" 
+                HeightRequest="450"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

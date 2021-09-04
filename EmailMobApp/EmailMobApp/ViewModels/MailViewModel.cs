@@ -17,13 +17,10 @@ namespace EmailMobApp.ViewModels
         public string To { get; set; }
         public string Subject { get; set; }
         public string Content { get; set; }
-
-        public ICommand AddMailCommand { get; }
-
         public MailViewModel(Mail mail)
         {
             From = mail.From;
-            To = mail.To;
+            To = $"to {mail.To}";
             Subject = mail.Subject;
             Content = mail.Content;
         }

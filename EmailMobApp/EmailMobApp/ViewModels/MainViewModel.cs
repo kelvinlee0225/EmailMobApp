@@ -35,11 +35,7 @@ namespace EmailMobApp.ViewModels
         public ICommand DeleteMailCommand { get; }
         public ICommand AttachPhoto { get; }
 
-        public ObservableCollection<Mail> Mails { get; set; } = new ObservableCollection<Mail>()
-        {
-            new Mail("from@example1","example@example.com", "Try1", "Content1"),
-            new Mail("from@example2","example@example.com", "Try2", "Content2")
-        };
+        public ObservableCollection<Mail> Mails { get; set; } = new ObservableCollection<Mail>();
         public MainViewModel()
         {
             SelectedMailCommand = new Command<Mail>(OnMailSelected);

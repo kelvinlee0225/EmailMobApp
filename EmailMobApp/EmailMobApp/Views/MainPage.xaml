@@ -43,11 +43,13 @@
                 <DataTemplate>
                     <SwipeView>
                         <SwipeView.RightItems>
-                            <SwipeItem 
-                                IconImageSource="trashcanLogo.png"
-                                BackgroundColor="Red"
-                                Command="{Binding Source={x:Reference emailMainPage}, Path=BindingContext.DeleteMailCommand}"
-                                CommandParameter="{Binding}"/>
+                            <SwipeItems>
+                                <SwipeItem 
+                                    IconImageSource="trashcanLogo.xml"
+                                    BackgroundColor="Red"
+                                    Command="{Binding Source={x:Reference emailMainPage}, Path=BindingContext.DeleteMailCommand}"
+                                    CommandParameter="{Binding}"/>
+                            </SwipeItems>
                         </SwipeView.RightItems>
                         <Grid
                             RowDefinitions="30,30,30"
@@ -69,17 +71,20 @@
                                         FontSize="Large"
                                         TextColor="Black"
                                        Grid.Column="1"
-                                       Grid.Row="0"/>
+                                       Grid.Row="0"
+                                       FontAttributes="Bold"/>
                             <Label Text="{Binding Subject}"
                                         FontSize="Medium"
                                         TextColor="Black"
                                        Grid.Column="1"
-                                       Grid.Row="1"/>
+                                       Grid.Row="1"
+                                    FontAttributes="Bold"/>
                             <Label Text="{Binding Content}"
                                         FontSize="Small"
                                         TextColor="Black"
                                        Grid.Column="1"
-                                       Grid.Row="2"/>
+                                       Grid.Row="2"
+                                    MaxLines="1"/>
                         </Grid>
                     </SwipeView>
                 </DataTemplate>

@@ -3,41 +3,103 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EmailMobApp.Views.MailPage"
              xmlns:viewModels="clr-namespace:EmailMobApp.ViewModels">
+    <NavigationPage.TitleView>
+        <Grid
+            ColumnDefinitions="*,Auto,Auto,Auto"
+            ColumnSpacing="30">
+            <ImageButton
+                Source="archiveLogo.png"
+                HeightRequest="40"
+                WidthRequest="40"
+                Grid.Column="0"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                BackgroundColor="Transparent"/>
+            <ImageButton
+                Source="trashcanLogoFilled.png"
+                HeightRequest="40"
+                WidthRequest="40"
+                Grid.Column="1"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                BackgroundColor="Red"/>
+            <ImageButton 
+                Source="mailLogo.png"
+                Grid.Column="2"
+                VerticalOptions="Center"
+                HorizontalOptions="End"
+                BackgroundColor="Transparent"
+                HeightRequest="40"
+                WidthRequest="40"/>
+        </Grid>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <Grid
-                ColumnDefinitions="Auto,*"
-                RowDefinitions="Auto, Auto, Auto">
+                ColumnDefinitions="Auto,*,Auto,Auto"
+                RowDefinitions="Auto, Auto, Auto, Auto"
+                RowSpacing="10">
                 <Label
                     Grid.Row="0"
-                    Grid.ColumnSpan="2"
+                    Grid.ColumnSpan="4"
                     Text="{Binding Subject}"
                     FontSize="36"
                     TextColor="Black"
-                    HorizontalOptions="Start"/>
-                <Label
-                    Grid.Row="1"
+                    HorizontalOptions="Center"/>
+                <Label 
+                   HeightRequest="1"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="4"
+                   BackgroundColor="LightGray"/>
+                <Frame 
+                    Grid.Row="2"
+                    Grid.RowSpan="2"
                     Grid.Column="0"
-                    Text="To"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Start"
-                    FontSize="Large"
-                    TextColor="Black"/>
-                <Label
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Text="{Binding To}"
-                    FontSize="Large"/>
+                    Padding="0"
+                    CornerRadius="100"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    HeightRequest="70"
+                    WidthRequest="70"
+                    BackgroundColor="Transparent">
+                    <Image Source="profilePictureLogo.png"/>
+                </Frame>
                 <Label
                     Grid.Row="2"
-                    Grid.ColumnSpan="2"
-                    Text="{Binding Subject}"
-                    FontSize="Body"/>
+                    Grid.Column="1"
+                    Text="{Binding From}"
+                    FontSize="Medium"
+                    TextColor="Black"/>
+                <ImageButton
+                    Grid.Row="2"
+                    Grid.RowSpan="2"
+                    Grid.Column="2"
+                    HorizontalOptions="End"
+                    BackgroundColor="Transparent"
+                    Source="replyLogo.xml"/>
+                <ImageButton
+                    Grid.Row="2"
+                    Grid.RowSpan="2"
+                    Grid.Column="3"
+                    HorizontalOptions="End"
+                    BackgroundColor="Transparent"
+                    Source="moreLogo.xml"/>
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Text="{Binding To}"
+                    FontSize="Small"/>
             </Grid>
+            <Label
+                HeightRequest="5"/>
             <Label
                 Text="{Binding Content}"
                 VerticalOptions="FillAndExpand"
-                FontSize="Body"/>
+                FontSize="20"
+                TextColor="Black"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
